@@ -3,15 +3,15 @@
   roles: 
     - do1jlr.gitea
   vars: 
-    gitea_fqdn: 'git.example.com'
-    gitea_root_url: 'https://34.230.48.254'
-    gitea_protocol: https
+    gitea_fqdn: "{{ wf_ec2_instance_facts.instances[0].public_dns_name }}"
+    gitea_root_url: "http://{{wf_ec2_instance_facts.instances[0].public_dns_name}}"
+    gitea_protocol: http
     gitea_start_ssh: true
 
   pre_tasks: 
     - name: install necessary packages 
       yum:
-        name: 
+        name:  
           - firewalld
           - httpd
         state: latest
