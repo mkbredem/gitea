@@ -4,6 +4,6 @@
     - do1jlr.gitea
   vars: 
     #gitea_fqdn: 'git.example.com'
-    gitea_root_url: 'https://' + {{ ec2_instance_facts.instances[0].public_ip_address }}
+    gitea_root_url: 'https://34.230.48.254'
     gitea_protocol: https
     gitea_start_ssh: true
