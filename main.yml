@@ -3,7 +3,24 @@
   roles: 
     - do1jlr.gitea
   vars: 
-    #gitea_fqdn: 'git.example.com'
+    gitea_fqdn: 'git.example.com'
     gitea_root_url: 'https://34.230.48.254'
     gitea_protocol: https
     gitea_start_ssh: true
+
+  pre_tasks: 
+    - name: install necessary packages 
+      yum:
+        name: 
+          - firewalld
+          - httpd
+        state: latest
+
+    - name: start services
+      service:
+        name: "{{ item }}"
+        state: started
+        enabled: true
+      loop:
+        - httpd
+        - firewalld
