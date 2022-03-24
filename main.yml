@@ -1,7 +1,7 @@
 - name: Install gitea 
   hosts: "{{ target_hosts }}"
   roles: 
-    - d01jlr.gitea
+    - do1jlr.gitea
   vars: 
     gitea_fqdn: 'git.example.com'
     gitea_root_url: 'https://git.example.com'
