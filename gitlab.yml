@@ -1,7 +1,7 @@
 - name: Install gitea 
   hosts: "{{ target_hosts }}"
   roles: 
-    - gitlab_role
+    - geerlingguy.gitlab
   vars: 
     gitlab_domain: "{{ wf_ec2_instance_facts.instances[0].public_dns_name }}"
     gitlab_external_url: "https://{{ gitlab_domain }}/"
